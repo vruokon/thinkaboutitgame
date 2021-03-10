@@ -25,9 +25,9 @@ public class TileScrolling : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.x < -width*17)
+        if(transform.position.x < -20)
         {
-            Vector2 resetPosition = new Vector2(width*18 * 2f, 0);
+            Vector2 resetPosition = new Vector2(21.6f * 2f, 0);
             transform.position = (Vector2)transform.position + resetPosition;
             Debug.Log(transform.position);
         }
