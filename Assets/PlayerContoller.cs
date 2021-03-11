@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
 {
+    
     public float jumbHeight = 6f;
-     [SerializeField] private LayerMask platformsLayerMask;
-     private BoxCollider2D boxCollider2d;
-     private Rigidbody2D rb;
-     public int health = 1;
+    [SerializeField] private LayerMask platformsLayerMask;
+    private Animator animator;
+    private BoxCollider2D boxCollider2d;
+    private Rigidbody2D rb;
+    public int health = 1;
 
     // Start is called before the first frame update
     void Start()
     {
+	animator = gameObject.GetComponent<Animator>();
 	rb = transform.GetComponent<Rigidbody2D>();
 	boxCollider2d = transform.GetComponent<BoxCollider2D>(); 
     }
@@ -22,7 +25,6 @@ public class PlayerContoller : MonoBehaviour
     {
        if (IsGrounded() && Input.GetKeyDown(KeyCode.Space)) //Hyppää vain jos koskettaa maata
         {
-	    Debug.Log("Jump");
             rb.velocity = Vector2.up * this.jumbHeight;
         } 
     }
@@ -33,8 +35,10 @@ public class PlayerContoller : MonoBehaviour
 	Color rayColor;
 	if(raycastHit.collider != null)
 	{
+	    animator.SetBool("isInAir", false);
 	    rayColor = Color.green;
 	} else {
+	    animator.SetBool("isInAir", true);
 	    rayColor = Color.red;
 	}
 	Debug.DrawRay(boxCollider2d.bounds.center, Vector2.down * (boxCollider2d.bounds.extents.y+.01f), rayColor);
