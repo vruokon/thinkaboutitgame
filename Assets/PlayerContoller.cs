@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerContoller : MonoBehaviour
 {
     
-    public float jumbHeight = 6f;
+    public float jumbHeight = 7f;
     [SerializeField] private LayerMask platformsLayerMask;
     private Animator animator;
     private BoxCollider2D boxCollider2d;
