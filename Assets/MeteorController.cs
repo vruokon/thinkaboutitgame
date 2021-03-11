@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeteorController : MonoBehaviour
 {
-    public new CapsuleCollider2D collider;
+    public CapsuleCollider2D collider;
     public new Rigidbody2D rb;
     
     private float width;
@@ -17,7 +17,6 @@ public class MeteorController : MonoBehaviour
      
      width = collider.size.x*1.2f;
      Debug.Log(width);
-     collider.enabled = false;
      
      rb.velocity = new Vector2(scrollSpeed, 0);
        
