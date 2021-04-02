@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class MeteorCollides : MonoBehaviour
 {
-    // Start is called before the first frame update
-   private void OnTriggerEnter2D(Collider2D other){
-   Debug.Log("hit hit hit");
-   } 
+    public bool hit = false;
+    
+    private void OnTriggerEnter2D(Collider2D other){
+	hit = true;
+    }
+    
+    public void setHitFalse(){
+	hit = false;
+    }
 }
